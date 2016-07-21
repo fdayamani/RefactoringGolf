@@ -1,11 +1,13 @@
 include 'ROUND_1_A',
-        'ROUND_1_B'
+        'ROUND_1_B',
+        'ROUND_2_A',
+        'ROUND_2_B',
+        'ROUND_3_A',
+        'ROUND_3_B',
+        'ROUND_4_A',
+        'ROUND_4_B',
+        'ROUND_5_A',
+        'ROUND_5_B',
 
 rootProject.name = 'RefactoringGolf'
-
-rootProject.children.each { it ->
-    def moduleName      = it.name
-    it.name             = "${rootProject.name}-${moduleName}"
-    it.buildFileName    = "${moduleName}.gradle"
-}
 
