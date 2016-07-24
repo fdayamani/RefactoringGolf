@@ -7,19 +7,6 @@ subprojects {
 
     sourceCompatibility = 1.5
 
-    sourceSets {
-        main {
-            java {
-                srcDir 'java'
-            }
-        }
-        test {
-            java {
-                srcDir 'test'
-            }
-        }
-    }
-
     repositories {
         mavenCentral()
     }
