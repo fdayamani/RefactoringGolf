@@ -1,20 +1,23 @@
-import static org.junit.Assert.*;
-
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.rules.ExpectedException;
 
  
 public class FibonacciIndexEdgeCaseTests {
 
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+
 	@Test
-	public void whenNumberNotFoundThenIndexIsMinusOne() {
-		assertEquals(-1, new FibonacciIndexer().findIndexOf(7));
+	public void throwsIllegalArgumentExceptionWhenArgumentIsNotFoundInSequence() {
+		thrown.expect(IllegalArgumentException.class);
+		new FibonacciIndexer().findIndexOf(23);
 	}
-	
+
 	@Test
-	public void cannotFindIndexOfNegativeNumber() {
-		assertEquals(-1, new FibonacciIndexer().findIndexOf(-1));
+	public void throwsIllegalArgumentExceptionWhenArgumentIsNegative() {
+		thrown.expect(IllegalArgumentException.class);
+		new FibonacciIndexer().findIndexOf(-3);
 	}
 
 

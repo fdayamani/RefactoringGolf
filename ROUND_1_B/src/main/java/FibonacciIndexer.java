@@ -4,26 +4,38 @@ import java.util.List;
 
 public class FibonacciIndexer {
 
-	public int findIndexOf(long fibonacci) {
-		if(fibonacci >= 0 && fibonacci < 2){
-			return (int)fibonacci;
+	public int findIndexOf(long numberInFibonacciSequence) {
+		if(isPositiveAndLessThanTwo(numberInFibonacciSequence)){
+			return indexIsTheSameAs(numberInFibonacciSequence);
 		}
-		return seek(fibonacci);
+		return seek(numberInFibonacciSequence);
 	}
 
-	private int seek(long fibonacci) {
-		int indexOfFibonacci = -1;
+	private int indexIsTheSameAs(long numberInFibonacciSequence) {
+		return (int)numberInFibonacciSequence;
+	}
+
+	private boolean isPositiveAndLessThanTwo(long numberInFibonacciSequence) {
+		return numberInFibonacciSequence >= 0 && numberInFibonacciSequence < 2;
+	}
+
+	private int seek(long numberInFibonacciSequence) {
 		int currentIndex = 2;
-		long f = 0;
+		long currentValue = 0;
 		List<Long> sequence = buildInitialSequence();
-		while(f < fibonacci){
-			f = sequence.get(currentIndex - 1) + sequence.get(currentIndex - 2);
-			if(f == fibonacci)
+		while(currentValue < numberInFibonacciSequence){
+			currentValue = sumOfPreviousTwoFibonacciNumbers(currentIndex, sequence);
+			if(currentValue == numberInFibonacciSequence) {
 				return currentIndex;
-			sequence.add(f);
+			}
+			sequence.add(currentValue);
 			currentIndex++;
 		}
-		return indexOfFibonacci;
+		throw new IllegalArgumentException(numberInFibonacciSequence + " is not a valid Fibonacci number.");
+	}
+
+	private long sumOfPreviousTwoFibonacciNumbers(int currentIndex, List<Long> sequence) {
+		return sequence.get(currentIndex - 1) + sequence.get(currentIndex - 2);
 	}
 
 	private List<Long> buildInitialSequence() {
