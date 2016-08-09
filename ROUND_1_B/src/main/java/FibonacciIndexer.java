@@ -20,6 +20,7 @@ public class FibonacciIndexer {
 	}
 
 	private int seek(long numberInFibonacciSequence) {
+		int invalidFibonacci = -1;
 		int currentIndex = 2;
 		long currentValue = 0;
 		List<Long> sequence = buildInitialSequence();
@@ -31,7 +32,7 @@ public class FibonacciIndexer {
 			sequence.add(currentValue);
 			currentIndex++;
 		}
-		throw new IllegalArgumentException(numberInFibonacciSequence + " is not a valid Fibonacci number.");
+		return invalidFibonacci;
 	}
 
 	private long sumOfPreviousTwoFibonacciNumbers(int currentIndex, List<Long> sequence) {
