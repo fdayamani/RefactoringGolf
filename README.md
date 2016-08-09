@@ -1,7 +1,5 @@
 Refactoring Golf is a game designed to stretch your refactoring muscles and get you to explore your IDE to see what's really possible using shortcuts and automation.
 
-Download either the Java or C# Refactoring Golf projects from GitHub (C# version TBA).
-
 You will find two versions of every project (labeled ROUND_N_A and ROUND_N_B). The _A project is the before (in gold terms, the "tee"), and the _B project is the after (the "hole").
 
 Your goal is to safely and efficiently as possible refactor the _A code to look like the _B code. You must aim to do it in as few "strokes" as possible, incurring as few points as possible.
