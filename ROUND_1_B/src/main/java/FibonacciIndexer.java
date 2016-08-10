@@ -4,6 +4,8 @@ import java.util.List;
 
 public class FibonacciIndexer {
 
+	public static final int INVALID_FIBONACCI = -1;
+
 	public int findIndexOf(long numberInFibonacciSequence) {
 		if(isPositiveAndLessThanTwo(numberInFibonacciSequence)){
 			return indexIsTheSameAs(numberInFibonacciSequence);
@@ -20,7 +22,6 @@ public class FibonacciIndexer {
 	}
 
 	private int seek(long numberInFibonacciSequence) {
-		int invalidFibonacci = -1;
 		int currentIndex = 2;
 		long currentValue = 0;
 		List<Long> sequence = buildInitialSequence();
@@ -32,7 +33,7 @@ public class FibonacciIndexer {
 			sequence.add(currentValue);
 			currentIndex++;
 		}
-		return invalidFibonacci;
+		return INVALID_FIBONACCI;
 	}
 
 	private long sumOfPreviousTwoFibonacciNumbers(int currentIndex, List<Long> sequence) {
